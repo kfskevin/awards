@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playobo Awards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e2f;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 3em;
+      color: #f1c40f;
+    }
+    .category {
+      margin: 30px 0;
+    }
+    .category h2 {
+      margin-bottom: 15px;
+      color: #ff6f61;
+    }
+    .nominees {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .nominee {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .nominee img {
+      width: 220px;
+      height: 240px;
+      border-radius: 10px;
+      transition: opacity 0.3s ease;
+    }
+    .nominee.selected img {
+      border: 5px solid #f1c40f;
+      opacity: 1;
+    }
+    .nominee img.dimmed {
+      opacity: 0.3;
+    }
+    .button {
+      margin-top: 40px;
+      background-color: #f1c40f;
+      color: #1e1e2f;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #ff6f61;
+    }
+    #winners {
+      margin-top: 30px;
+      background-color: #2c2c3e;
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+    }
+    #winners-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  #winners-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2c2c3e;
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 200px;
+    text-align: center;
+  }
+
+  #winners-list img {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+   
+  }
+
+  #winners-list h3 {
+    color: #f1c40f;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+  }
+
+  #winners-list p {
+    margin: 0;
+    font-size: 1em;
+    color: #ffffff;
+  }
+
+  </style>
+</head>
+<body>
+  <h1>Playobo Awards</h1>
+
+  <div class="category" id="category1">
+    <h2>Mejor Diseño de Arte</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor diseño de arte" data-name="Celeste">
+        <img src="nominados/celeste.png" alt="Nominee 1">
+      </div>
+      <div class="nominee" data-category="Mejor diseño de arte" data-name="Persona 5 Royal">
+        <img src="nominados/p5r.png" alt="Nominee 2">
+      </div>
+      <div class="nominee" data-category="Mejor diseño de arte" data-name="Persona 3 Reload">
+        <img src="nominados/p3r.png" alt="Nominee 3">
+      </div>
+      <div class="nominee" data-category="Mejor diseño de arte" data-name="Super Mario Galaxy">
+        <img src="nominados/mariogalaxy.png" alt="Nominee 4">
+      </div>
+      <div class="nominee" data-category="Mejor diseño de arte" data-name="Persona 4 Golden">
+        <img src="nominados/p4g.png" alt="Nominee 5">
+      </div>
+      <div class="nominee" data-category="Mejor diseño de arte" data-name="Neva">
+        <img src="nominados/neva.png" alt="Nominee 6">
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category2">
+    <h2>Mejor Juego de Terror</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor Juego de Terror" data-name="Fears To Fathom: Ironbark Lookout">
+        <img src="nominados/FEARSironbark.png" alt="Nominee 1">
+      </div>
+      <div class="nominee" data-category="Mejor Juego de Terror" data-name="Silent Hill 2">
+        <img src="nominados/sh2.png" alt="Nominee 2">
+      </div>
+      <div class="nominee" data-category="Mejor Juego de Terror" data-name="Silent Hill 4">
+        <img src="nominados/sh4.png" alt="Nominee 3">
+      </div>
+      <div class="nominee" data-category="Mejor Juego de Terror" data-name="Psalm 5:9-13">
+        <img src="nominados/psalm.png" alt="Nominee 5">
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category3">
+    <h2>Mejor Juego Indie</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor Juego Indie" data-name="Celeste">
+        <img src="nominados/celeste.png" alt="Nominee 1">
+      </div>
+      <div class="nominee" data-category="Mejor Juego Indie" data-name="Balatro">
+        <img src="nominados/balatro.png" alt="Nominee 2">
+      </div>
+      <div class="nominee" data-category="Mejor Juego Indie" data-name="Cocoon">
+        <img src="nominados/cocoon.png" alt="Nominee 3">
+      </div>
+      <div class="nominee" data-category="Mejor Juego Indie" data-name="The Vanishing Of Ethan Carther">
+        <img src="nominados/vanishingEthancarter.png" alt="Nominee 4">
+      </div>
+      <div class="nominee" data-category="Mejor Juego Indie" data-name="Neva">
+        <img src="nominados/neva.png" alt="Nominee 5">
+      </div>
+      <div class="nominee" data-category="Mejor Juego Indie" data-name="Bloons TD6">
+        <img src="nominados/bloonstd6.png" alt="Nominee 6">
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category4">
+    <h2>Mejor Juego de Acción</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor Juego de Acción" data-name="Hitman Blood Money">
+        <img src="nominados/hitmanBloodmoney.png" alt="Nominee 1">
+      </div>
+      <div class="nominee" data-category="Mejor Juego de Acción" data-name="Metal Gear Solid: Peace Walker">
+        <img src="nominados/mgsPeaceWalker.png" alt="Nominee 2">
+      </div>
+      <div class="nominee" data-category="Mejor Juego de Acción" data-name="Call of Duty: Black Ops 6">
+        <img src="nominados/bo6.png" alt="Nominee 3">
+      </div>
+      <div class="nominee" data-category="Mejor Juego de Acción" data-name="Days Gone">
+        <img src="nominados/daysgone.png" alt="Nominee 4">
+      </div>
+      <div class="nominee" data-category="Mejor Juego de Acción" data-name="Hitman (2016)">
+        <img src="nominados/hitman2016.png" alt="Nominee 5">
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category5">
+    <h2>Mejor Soundtrack</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor Soundtrack" data-name="Persona 5 Royal">
+        <img src="nominados/p5r.png" alt="Nominee 1">
+      </div>
+      <div class="nominee" data-category="Mejor Soundtrack" data-name="Persona 3 Reload">
+        <img src="nominados/p3r.png" alt="Nominee 2">
+      </div>
+      <div class="nominee" data-category="Mejor Soundtrack" data-name="Persona 4 Golden">
+        <img src="nominados/p4g.png" alt="Nominee 3">
+      </div>
+      <div class="nominee" data-category="Mejor Soundtrack" data-name="Super Mario Galaxy">
+        <img src="nominados/mariogalaxy.png" alt="Nominee 4">
+      </div>
+      <div class="nominee" data-category="Mejor Soundtrack" data-name="Hitman (2016)">
+        <img src="nominados/witcher3.png" alt="Nominee 5">
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category6">
+    <h2>Mejor Ambientación</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor Ambientación" data-name="Silent Hill 2">
+        <img src="nominados/sh2.png" alt="Nominee 1">
+      </div>
+      <div class="nominee" data-category="Mejor Ambientación" data-name="Hitman (2016)">
+        <img src="nominados/witcher3.png" alt="Nominee 2">
+      </div>
+      <div class="nominee" data-category="Mejor Ambientación" data-name="Days Gone">
+        <img src="nominados/daysgone.png" alt="Nominee 3">
+      </div>
+      <div class="nominee" data-category="Mejor Ambientación" data-name="Alan Wake II: The Lake House">
+        <img src="nominados/alanwake2lakehouse.png" alt="Nominee 4">
+      </div>
+      <div class="nominee" data-category="Mejor Ambientación" data-name="Fallout 4">
+        <img src="nominados/fallout4.png" alt="Nominee 5">
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category7">
+    <h2>Mejor DLC/Expansión</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor DLC/Expansión" data-name="Resident Evil Village: Shadows Of Rose">
+        <img src="nominados/re8shadowofrose.png" alt="Nominee 1">
+      </div>
+      <div class="nominee" data-category="Mejor DLC/Expansión" data-name="Alan Wake II: The Lake House">
+        <img src="nominados/alanwake2lakehouse.png" alt="Nominee 2">
+      </div>
+      <div class="nominee" data-category="Mejor DLC/Expansión" data-name="Cyberpunk 2077: Phantom Liberty">
+        <img src="nominados/phantomLibery.png" alt="Nominee 3">
+      </div>
+      <div class="nominee" data-category="Mejor DLC/Expansión" data-name="Persona 3 Reload: Episode Aigis">
+        <img src="nominados/p3RAigis.png" alt="Nominee 4">
+      </div>
+      <div class="nominee" data-category="Mejor DLC/Expansión" data-name="Alan Wake II: Nightsprings">
+        <img src="nominados/alanwak2nightsprings.png" alt="Nominee 5">
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category8">
+    <h2>Mejor Plataformas</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor Plataformas" data-name="Super Mario Galaxy">
+        <img src="nominados/mariogalaxy.png" alt="Nominee 1">
+      </div>
+      <div class="nominee" data-category="Mejor Plataformas" data-name="Celeste">
+        <img src="nominados/celeste.png" alt="Nominee 2">
+      </div>
+      <div class="nominee" data-category="Mejor Plataformas" data-name="Astrobot">
+        <img src="nominados/astrobot.png" alt="Nominee 3">
+      </div>
+      <div class="nominee" data-category="Mejor Plataformas" data-name="Neva">
+        <img src="nominados/neva.png" alt="Nominee 4">
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category8">
+    <h2>Mejor Narrativa</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor Narrativa" data-name="Metaphor: Refantazio">
+        <img src="nominados/metaphor.png" alt="Metaphor: Refantazio">
+      </div>
+      <div class="nominee" data-category="Mejor Narrativa" data-name="Persona 3 Reload">
+        <img src="nominados/p3r.png" alt="Persona 3 Reload">
+      </div>
+      <div class="nominee" data-category="Mejor Narrativa" data-name="Silent Hill 2">
+        <img src="nominados/sh2.png" alt="Silent Hill 2">
+      </div>
+      <div class="nominee" data-category="Mejor Narrativa" data-name="Persona 5 Royal">
+        <img src="nominados/p5r.png" alt="Persona 5 Royal">
+      </div>
+      <div class="nominee" data-category="Mejor Narrativa" data-name="Persona 4 Golden">
+        <img src="nominados/p4g.png" alt="Persona 4 Golden">
+      </div>
+      <div class="nominee" data-category="Mejor Narrativa" data-name="Detroit: Become Human">
+        <img src="nominados/detroit.png" alt="Detroit: Become Human">
+      </div>
+      <div class="nominee" data-category="Mejor Narrativa" data-name="Days Gone">
+        <img src="nominados/daysgone.png" alt="Days Gone">
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category9">
+    <h2>Mayor Mierdon del Año</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mayor Mierdon del Año" data-name="Halo: Reach">
+        <img src="nominados/haloReach.png" alt="Nominee 1">
+      </div>
+      <div class="nominee" data-category="Mayor Mierdon del Año" data-name="Batman Arkham: Asylum">
+        <img src="nominados/batmanasylum.png" alt="Nominee 2">
+      </div>
+      <div class="nominee" data-category="Mayor Mierdon del Año" data-name="My Friend Peppa Pig">
+        <img src="nominados/peppapig.png" alt="Nominee 3">
+      </div>
+      <div class="nominee" data-category="Mayor Mierdon del Año" data-name="Silent Hill 4: The Room">
+        <img src="nominados/sh4.png" alt="Nominee 4">
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category9">
+    <h2>Menciones Honorificas</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mencion Honorifica" data-name="Sekiro: Shadows Dies Twice">
+        <img src="nominados/sekiro.png" alt="Nominee 1">
+      </div>
+      <div class="nominee" data-category="Mencion Honorifica" data-name="Days Gone">
+        <img src="nominados/daysgone.png" alt="Nominee 2">
+      </div>
+      <div class="nominee" data-category="Mencion Honorifica" data-name="Super Mario Galaxy">
+        <img src="nominados/mariogalaxy.png" alt="Nominee 3">
+      </div>
+      <div class="nominee" data-category="Mencion Honorifica" data-name="Detroit: Become Human">
+        <img src="nominados/detroit.png" alt="Nominee 4">
+      </div>
+      <div class="nominee" data-category="Mencion Honorifica" data-name="control">
+        <img src="nominados/control.png" alt="Nominee 5">
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category11">
+    <h2>Mejor Juego del Año</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor Juego del Año" data-name="Persona 3 Reload">
+        <img src="nominados/p3r.png" alt="Nominee 1">
+      </div>
+      <div class="nominee" data-category="Mejor Juego del Año" data-name="Persona 4 Golden">
+        <img src="nominados/p4g.png" alt="Nominee 2">
+      </div>
+      <div class="nominee" data-category="Mejor Juego del Año" data-name="Persona 5 Royal">
+        <img src="nominados/p5r.png" alt="Nominee 3">
+      </div>
+      <div class="nominee" data-category="Mejor Juego del Año" data-name="Astrobot">
+        <img src="nominados/astrobot.png" alt="Nominee 4">
+      </div>
+      <div class="nominee" data-category="Mejor Juego del Año" data-name="Hitman Blood Money">
+        <img src="nominados/hitmanBloodmoney.png" alt="Nominee 4">
+      </div>
+      <div class="nominee" data-category="Mejor Juego del Año" data-name="Silent Hill 2">
+        <img src="nominados/sh2.png" alt="Nominee 5">
+      </div>
+      <div class="nominee" data-category="Mejor Juego del Año" data-name="Metaphor: Refantazio">
+        <img src="nominados/metaphor.png" alt="Nominee 5">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
