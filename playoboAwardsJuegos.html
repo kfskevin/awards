@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playobo Awards</title>
+  <title>Playobo Game Awards</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -36,19 +36,20 @@
     .nominees {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;  /* Esto asegura que las imágenes se centren horizontalmente */
-  gap: 20px;  /* Espacio entre las imágenes */
-  margin: 0 auto;  /* Centrado del contenedor */
+  justify-content: center;  
+  gap: 20px; 
+  margin: 0 auto;  
 }
 
 .nominee {
-  display: inline-block; /* Asegura que las imágenes se alineen en una fila */
-  text-align: center;    /* Centra el contenido dentro del contenedor */
+  display: inline-block; 
+  text-align: center;    
 }
 
 .nominee img {
   max-width: 100%;
   height: 230px;
+  object-fit: contain;
   border-radius: 10px;
 }
 
@@ -118,6 +119,7 @@
     #winners-list img {
       width: 250px;
       height: 250px;
+      object-fit: contain;
       border-radius: 10px;
       margin-bottom: 10px;
     }
@@ -226,6 +228,31 @@
           </div>
         </div>
       </div>
+
+      <div class="category" id="category4">
+        <h2>Mejor Multijugador</h2>
+        <div class="nominees">
+          <div class="nominee" data-category="Mejor Multijugador" data-name="Furbo">
+            <img src="nominados/furbo.png" alt="Nominee 1">
+          </div>
+          <div class="nominee" data-category="Mejor Multijugador" data-name="Call of Duty: Black ops 3">
+            <img src="nominados/bo3.png" alt="Nominee 2">
+          </div>
+          <div class="nominee" data-category="Mejor Multijugador" data-name="Call of Duty: Black Ops 6">
+            <img src="nominados/bo6.png" alt="Nominee 3">
+          </div>
+          <div class="nominee" data-category="Mejor Multijugador" data-name="GTA V: Online">
+            <img src="nominados/gtao.png" alt="Nominee 4">
+          </div>
+          <div class="nominee" data-category="Mejor Multijugador" data-name="Rocket League">
+            <img src="nominados/rocket.png" alt="Nominee 5">
+          </div>
+          <div class="nominee" data-category="Mejor Multijugador" data-name="Fortnite">
+            <img src="nominados/fortnite.png" alt="Nominee 6">
+          </div>
+        </div>
+      </div>
+
       <div class="category" id="category5">
         <h2>Mejor Soundtrack</h2>
         <div class="nominees">
@@ -444,16 +471,13 @@
     listItem.innerHTML = `
       <h3>${category}</h3>
       <img src="${winner.imgSrc}" alt="${winner.name}">
-      <p>${winner.name}</p>
     `;
     winnersList.appendChild(listItem);
   }
 
   document.getElementById('winners').style.display = 'block';
 }
-
 </script>
-
 
   <script>
     let currentIndex = 0;
@@ -474,23 +498,19 @@
     }
 
     function selectNominee(nominee) {
-      // Obtener todos los nominados de la categoría
+  
       const nominees = nominee.parentElement.querySelectorAll('.nominee');
 
-      // Desmarcar todas las imágenes y oscurecer las no seleccionadas
       nominees.forEach(n => {
         n.classList.remove('selected');
         n.querySelector('img').classList.add('dimmed');
       });
 
-      // Marcar la imagen seleccionada
       nominee.classList.add('selected');
       nominee.querySelector('img').classList.remove('dimmed');
     }
 
     function submitVotes() {
-      // El botón de votar solo guarda la selección, sin mostrar notificación
-      // Aquí puedes enviar los votos al servidor si es necesario
     }
   </script>
 </body>

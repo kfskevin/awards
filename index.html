@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playobo Awards</title>
+  <title>Playobo Game Awards</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -34,9 +35,11 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
+
     .nominee img {
       width: 220px;
-      height: 240px;
+      height: 220px;
+      object-fit: contain;
       border-radius: 10px;
       transition: opacity 0.3s ease;
     }
@@ -107,12 +110,30 @@
     font-size: 1em;
     color: #ffffff;
   }
+  .back-button {
+      background-color: #f1c40f;
+      color: #1e1e2f;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .back-button:hover {
+      background-color: #ff6f61;
+    }
 
   </style>
+  <button class="back-button" onclick="window.location.href='indexComunidad.html'">Ir a Playobo Community Awards</A></button>
+
 </head>
 <body>
-  <h1>Playobo Awards</h1>
-
+  <h1>Playobo Game Awards</h1>
   <div class="category" id="category1">
     <h2>Mejor Diseño de Arte</h2>
     <div class="nominees">
@@ -179,6 +200,7 @@
     </div>
   </div>
 
+
   <div class="category" id="category4">
     <h2>Mejor Juego de Acción</h2>
     <div class="nominees">
@@ -196,6 +218,30 @@
       </div>
       <div class="nominee" data-category="Mejor Juego de Acción" data-name="Hitman (2016)">
         <img src="nominados/hitman2016.png" alt="Nominee 5">
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category4">
+    <h2>Mejor Juego Multijugador</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor Juego Multijugador" data-name="Furbo">
+        <img src="nominados/furbo.png" alt="Nominee 1">
+      </div>
+      <div class="nominee" data-category="Mejor Juego Multijugador" data-name="Call of Duty: Black ops 3">
+        <img src="nominados/bo3.png" alt="Nominee 2">
+      </div>
+      <div class="nominee" data-category="Mejor Juego Multijugador" data-name="Call of Duty: Black Ops 6">
+        <img src="nominados/bo6.png" alt="Nominee 3">
+      </div>
+      <div class="nominee" data-category="Mejor Juego Multijugador" data-name="GTA V: Online">
+        <img src="nominados/gtao.png" alt="Nominee 4">
+      </div>
+      <div class="nominee" data-category="Mejor Juego Multijugador" data-name="Rocket League">
+        <img src="nominados/rocket.png" alt="Nominee 5">
+      </div>
+      <div class="nominee" data-category="Mejor Juego Multijugador" data-name="Fortnite">
+        <img src="nominados/fortnite.png" alt="Nominee 6">
       </div>
     </div>
   </div>

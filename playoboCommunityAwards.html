@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playobo Community Awards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e2f;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 3em;
+      color: #f1c40f;
+    }
+    .category {
+      margin: 30px 0;
+    }
+    .category h2 {
+      margin-bottom: 15px;
+      color: #ff6f61;
+    }
+    .nominees, .videos {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .nominee, .video-item {
+      position: relative;
+      cursor: pointer;
+      background-color: #2c2c3e;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      max-width: 300px;
+      transition: opacity 0.3s ease;
+    }
+    .nominee img, .video-item video {
+      width: 240px;
+      height: 240px;
+      object-fit: contain;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    .nominee img {
+      max-height: 220px;
+    }
+    .video-item video {
+      max-height: 220px;
+    }
+    .button {
+      margin-top: 40px;
+      background-color: #f1c40f;
+      color: #1e1e2f;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #ff6f61;
+    }
+    .selected {
+      border: 5px solid #f1c40f;
+    }
+    .not-selected {
+      opacity: 0.5;
+    }
+    .winner-display {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #2c2c3e;
+      border-radius: 10px;
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .winner-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 350px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+    .winner-item img,
+    .winner-item video {
+      max-width: 450px;
+      border-radius: 10px;
+    }
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #2c2c3e;
+      border-radius: 10px;
+      padding: 20px;
+      display: none;
+      z-index: 1000;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
+      z-index: 999;
+    }
+    .close-modal {
+      margin-top: 20px;
+      background-color: #f1c40f;
+      color: #1e1e2f;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .back-button {
+      background-color: #f1c40f;
+      color: #1e1e2f;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    .back-button:hover {
+      background-color: #ff6f61;
+    }
+    #winner-display h2 {
+      color: #ffffff;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    #winners {
+      margin-top: 50px;
+      display: none;
+    }
+    #winners ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  #winners li {
+    background-color: #2c2c3e;
+    margin: 5px 0;
+    font-size: 1.2em;
+    padding: 15px;
+    background: none;
+    color: #f1c40f;
+    text-align: center;
+    min-width: fit-content; 
+    max-width: fit-content; 
+    word-wrap: break-word; 
+    display: inline-block; 
+  }
+    #winners .category-name {
+      color: #f1c40f;
+    }
+    #winners .nominee-name {
+      color: #ffffff;
+    }
+
+    .winner-item video {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain;
+  }
+  </style>
+  <button class="back-button" onclick="window.location.href='index.html'">Ir a Playobo Game Awards</A></button>
+
+</head>
+<body>
+  <h1>Playobo Community Awards</h1>
+  <h2 style="color: #ff6f61">Mencion Honorifica</h2>
+  <div class="" data-category="Mencion Honorifica" data-name="Axiel 21/11/2024">
+    <img src="nominadosComunidad/mejor mensaje del año/mencionhonorifica.png" alt="Nominee 1" onclick="selectNominee(this)">
+  </div>
+
+  <div class="category" id="category-images">
+    <h2>Mod del año</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mod del año" data-name="Stufa">
+        <img src="nominadosComunidad/mejor mod/stufa.png" alt="Nominee 1" onclick="selectNominee(this)">
+        <p>Stufa</p>
+      </div>
+      <div class="nominee" data-category="Mod del año" data-name="Andreu">
+        <img src="nominadosComunidad/mejor mod/andreu.png" alt="Nominee 2" onclick="selectNominee(this)">
+        <p>Andreu</p>
+      </div>
+      <div class="nominee" data-category="Mod del año" data-name="Jerbon">
+        <img src="nominadosComunidad/mejor mod/jerbon.png" alt="Nominee 3" onclick="selectNominee(this)">
+        <p>Jerbon</p>
+      </div>
+      <div class="nominee" data-category="Mod del año" data-name="Gabo">
+        <img src="nominadosComunidad/mejor mod/gabo.png" alt="Nominee 4" onclick="selectNominee(this)">
+        <p>Gabo</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="category-images">
+    <h2>Mejor Personaje</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor Personaje" data-name="Blancobo Cabrera">
+        <img src="nominados/personajes/jokerP5.png"  alt="Nominee 1" onclick="selectNominee(this)">
+        <p>Blancobo Cabrera</p>
+      </div>
+      <div class="nominee" data-category="Mejor Personaje" data-name="Jerbon Quevedo">
+        <img src="nominados/personajes/jerbon.png" alt="Nominee 2" onclick="selectNominee(this)">
+        <p>Jerbon Quevedo</p>
+      </div>
+      <div class="nominee" data-category="Mejor Personaje" data-name="Stufita Escaleras">
+        <img src="nominados/personajes/stufita.png" alt="Nominee 3" onclick="selectNominee(this)">
+        <p>Stufita Escaleras</p>
+      </div>
+      <div class="nominee" data-category="Mejor Personaje" data-name="Metrobomba">
+        <img src="nominados/personajes/metrobomba.png" alt="Nominee 4" onclick="selectNominee(this)">
+        <p>Metrobomba</p>
+      </div>
+      <div class="nominee" data-category="Mejor Personaje" data-name="Teddie">
+        <img src="nominados/personajes/Teddie.png" alt="Nominee 5" onclick="selectNominee(this)">
+        <p>Teddie</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="category" id="category-images">
+    <h2>Jugador de Aristoputas del Año</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Jugador de Aristoputas del Año" data-name="Stufa">
+        <img src="nominadosComunidad/jugador del año/Stufa.png" alt="Nominee 1" onclick="selectNominee(this)">
+        <p>Stufa</p>
+      </div>
+      <div class="nominee" data-category="Jugador de Aristoputas del Año" data-name="Sulkoh">
+        <img src="nominadosComunidad/jugador del año/Sulkoh.png" alt="Nominee 2" onclick="selectNominee(this)">
+        <p>Sulkoh</p>
+      </div>
+      <div class="nominee" data-category="Jugador de Aristoputas del Año" data-name="Kenny">
+        <img src="nominadosComunidad/jugador del año/Kenny.png" alt="Nominee 3" onclick="selectNominee(this)">
+        <p>Kenny</p>
+      </div>
+      <div class="nominee" data-category="Jugador de Aristoputas del Año" data-name="Fabs">
+        <img src="nominadosComunidad/jugador del año/Fabs.png" alt="Nominee 4" onclick="selectNominee(this)">
+        <p>Fabs</p>
+      </div>
+      <div class="nominee" data-category="Jugador de Aristoputas del Año" data-name="Andreu">
+        <img src="nominadosComunidad/jugador del año/Andreu.png" alt="Nominee 5" onclick="selectNominee(this)">
+        <p>Andreu</p>
+      </div>
+      <div class="nominee" data-category="Jugador de Aristoputas del Año" data-name="Drea">
+        <img src="nominadosComunidad/jugador del año/Drea.png" alt="Nominee 6" onclick="selectNominee(this)">
+        <p>Drea</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="category" id="category-images">
+    <h2>Jacobo del Año</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Jacobo del Año" data-name="Cacobo">
+        <img src="nominadosComunidad/mejor jacobo/cacobo.png" alt="Nominee 1" onclick="selectNominee(this)">
+      </div>
+      <div class="nominee" data-category="Jacobo del Año" data-name="Blancobo">
+        <img src="nominadosComunidad/mejor jacobo/blancobo.jpg" alt="Nominee 2" onclick="selectNominee(this)">
+      </div>
+      <div class="nominee" data-category="Jacobo del Año" data-name="Nacobo">
+        <img src="nominadosComunidad/mejor jacobo/nacobo.png" alt="Nominee 3" onclick="selectNominee(this)">
+      </div>
+      <div class="nominee" data-category="Jacobo del Año" data-name="Jotobo">
+        <img src="nominadosComunidad/mejor jacobo/jotobo.png" alt="Nominee 4" onclick="selectNominee(this)">
+      </div>
+      <div class="nominee" data-category="Jacobo del Año" data-name="Kekobo">
+        <img src="nominadosComunidad/mejor jacobo/Kekobo.png" alt="Nominee 5" onclick="selectNominee(this)">
+      </div>
+    </div>
+  </div>
+  <div class="category" id="category-images">
+    <h2>Decepción Amorosa de Jacobo del año</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Decepción Amorosa de Jacobo del año" data-name=" ">
+        <img src="nominadosComunidad/decepcion amorosa de jacobo/profedeingles.png" alt="Nominee 1" onclick="selectNominee(this)">
+      </div>
+      <div class="nominee" data-category="Decepción Amorosa de Jacobo del año" data-name=" ">
+        <img src="nominadosComunidad/decepcion amorosa de jacobo/pokemongo.png" alt="Nominee 2" onclick="selectNominee(this)">
+      </div>      <div class="nominee" data-category="Decepción Amorosa de Jacobo del año" data-name="">
+        <img src="nominadosComunidad/decepcion amorosa de jacobo/ladelafiesta.png" alt="Nominee 3" onclick="selectNominee(this)">
+      </div>      <div class="nominee" data-category="Decepción Amorosa de Jacobo del año" data-name="">
+        <img src="nominadosComunidad/decepcion amorosa de jacobo/mamasoltera.png" alt="Nominee 4" onclick="selectNominee(this)">
+    </div>
+   </div>
+  </div>
+
+
+  <div class="category" id="category-images">
+    <h2>Mejor mensaje del Año</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Mejor mensaje del Año" data-name="Axiel 21/11/2024">
+        <img src="nominadosComunidad/mejor mensaje del año/jennymodcacobo21noviembre.png" alt="Nominee 1" onclick="selectNominee(this)">
+        <button onclick="showModal(this)">Ver más grande</button>
+      </div>
+      <div class="nominee" data-category="Mejor mensaje del Año" data-name="Hazrd 08/08/2024">
+        <img src="nominadosComunidad/mejor mensaje del año/octabahazrd8agosto.png" alt="Nominee 2" onclick="selectNominee(this)">
+        <button onclick="showModal(this)">Ver más grande</button>
+      </div>
+      <div class="nominee" data-category="Mejor mensaje del Año" data-name="Stufa 03/11/2024">
+        <img src="nominadosComunidad/mejor mensaje del año/duermeelculo.png" alt="Nominee 3" onclick="selectNominee(this)">
+        <button onclick="showModal(this)">Ver más grande</button>
+      </div>
+      <div class="nominee" data-category="Mejor mensaje del Año" data-name="Jacobo 1/26/2024">
+        <img src="nominadosComunidad/mejor mensaje del año/yosoyvictorcarvajal.png" alt="Nominee 4" onclick="selectNominee(this)">
+        <button onclick="showModal(this)">Ver más grande</button>
+      </div>
+      <div class="nominee" data-category="Mejor mensaje del Año" data-name="Davidbar 1/16/2024">
+        <img src="nominadosComunidad/mejor mensaje del año/noselebajaDavid1-16-2024.png" alt="Nominee 5" onclick="selectNominee(this)">
+        <button onclick="showModal(this)">Ver más grande</button>
+      </div>
+      <div class="nominee" data-category="Mejor mensaje del Año" data-name="Ocanji 24/07/2024">
+        <img src="nominadosComunidad/mejor mensaje del año/test.png" alt="Nominee 6" onclick="selectNominee(this)">
+        <button onclick="showModal(this)">Ver más grande</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="category" id="category-images">
+    <h2>Viewer del Año</h2>
+    <div class="nominees">
+      <div class="nominee" data-category="Viewer del Año" data-name="RNDLL_701">
+        <img src="nominadosComunidad/viewer/randall.webp" alt="Nominee 1" onclick="selectNominee(this)">
+        <p>RNDLL_701</p>
+      </div>
+      <div class="nominee" data-category="Viewer del Año" data-name="History10_TN">
+        <img src="nominadosComunidad/viewer/4x.webp" alt="Nominee 2" onclick="selectNominee(this)">
+        <p>History10_TN</p>
+      </div><div class="nominee" data-category="Viewer del Año" data-name="Davidbar">
+        <img src="nominadosComunidad/viewer/david.png" alt="Nominee 3" onclick="selectNominee(this)">
+        <p>Davidbar</p>
+      </div><div class="nominee" data-category="Viewer del Año" data-name="Tamalin">
+        <img src="nominadosComunidad/viewer/Tamalin.png" alt="Nominee 4" onclick="selectNominee(this)">
+        <p>Tamalin</p>
+      </div>
+      <div class="nominee" data-category="Viewer del Año" data-name="Vipper">
+        <img src="nominadosComunidad/viewer/vipper.png" alt="Nominee 5" onclick="selectNominee(this)">
+        <p>Vipper</p>
+      </div>
+      <div class="nominee" data-category="Viewer del Año" data-name="Invix">
+        <img src="nominadosComunidad/viewer/invix.png" alt="Nominee 6" onclick="selectNominee(this)">
+        <p>Invix</p>
+      </div>
+      <div class="nominee" data-category="Viewer del Año" data-name="Frijol">
+        <img src="nominadosComunidad/viewer/frijol.png" alt="Nominee 7" onclick="selectNominee(this)">
+        <p>Frijol</p>
+      </div>
+      <div class="nominee" data-category="Viewer del Año" data-name="Boggis">
+        <img src="nominadosComunidad/viewer/boggi.jpg" alt="Nominee 8" onclick="selectNominee(this)">
+        <p>Boggis</p>
+      </div>
+      <div class="nominee" data-category="Viewer del Año" data-name="Hazrd">
+        <img src="nominadosComunidad/viewer/hzrd.png" alt="Nominee 9" onclick="selectNominee(this)">
+        <p>Hazrd</p>
+      </div>
+      <div class="nominee" data-category="Viewer del Año" data-name="Stufa">
+        <img src="nominadosComunidad/viewer/stufa.webp" alt="Nominee 10" onclick="selectNominee(this)">
+        <p>Stufa</p>
+      </div>
+   </div>
+  </div>
+
+  <div class="category" id="category-videos">
+    <h2>Mejor Clip del Año</h2>
+    <div class="videos">
+      <div class="video-item" data-category="Mejor Clip del Año" data-name="Crasheo en las venturas">
+        <video controls>
+          <source src="nominadosComunidad/clip/crasheo4h.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+        <button onclick="selectVideo(this)">Seleccionar</button>
+      </div>
+      <div class="video-item" data-category="Mejor Clip del Año" data-name="'Perfecto'">
+        <video controls>
+          <source src="nominadosComunidad/clip/perfecto.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+        <button onclick="selectVideo(this)">Seleccionar</button>
+      </div>
+      <div class="video-item" data-category="Mejor Clip del Año" data-name="La profe">
+        <video controls>
+          <source src="nominadosComunidad/clip/LAPROFE.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+        <button onclick="selectVideo(this)">Seleccionar</button>
+      </div>
+      <div class="video-item" data-category="Mejor Clip del Año" data-name="Opinion sobre las gordas">
+        <video controls>
+          <source src="nominadosComunidad/clip/opinionsobrelasgordas.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+        <button onclick="selectVideo(this)">Seleccionar</button>
+      </div>
+      <div class="video-item" data-category="Mejor Clip del Año" data-name="HAGALO">
+        <video controls>
+          <source src="nominadosComunidad/clip/hagalo.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+        <button onclick="selectVideo(this)">Seleccionar</button>
+      </div>
+      <div class="video-item" data-category="Mejor Clip del Año" data-name="Me paso con mi papá">
+        <video controls>
+          <source src="nominadosComunidad/clip/MEPASOCONMIPAPA.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+        <button onclick="selectVideo(this)">Seleccionar</button>
+      </div>
+      <div class="video-item" data-category="Mejor Clip del Año" data-name="Vamonos">
+        <video controls>
+          <source src="nominadosComunidad/clip/vamonos.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+        <button onclick="selectVideo(this)">Seleccionar</button>
+      </div>
+      <div class="video-item" data-category="Mejor Clip del Año" data-name="Me vine">
+        <video controls>
+          <source src="nominadosComunidad/clip/mevine.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+        <button onclick="selectVideo(this)">Seleccionar</button>
+      </div>
+      <div class="video-item" data-category="Mejor Clip del Año" data-name="Voy bien voy bien">
+        <video controls>
+          <source src="nominadosComunidad/clip/voybien.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+        <button onclick="selectVideo(this)">Seleccionar</button>
+      </div>
+    </div>
+  </div>
+  <div id="winners">
+    <h2>Ganadores de la comunidad</h2>
+    <ul id="winners-list"></ul>
+  </div>
+  <button class="button" onclick="showWinners()">Mostrar Ganadores</button>
+  <div class="overlay" onclick="closeModal()"></div>
+  <div class="modal">
+    <img id="modal-image" src="" alt="Imagen destacada">
+    <button class="close-modal" onclick="closeModal()">Cerrar</button>
+  </div>
+  <script>
+    let winners = {};
+  
+    // ver imagen mas grande
+    function showModal(button) {
+      const image = button.previousElementSibling;
+      const modal = document.querySelector('.modal');
+      const overlay = document.querySelector('.overlay');
+      document.getElementById('modal-image').src = image.src;
+      modal.style.display = 'block';
+      overlay.style.display = 'block';
+    }
+    function closeModal() {
+      const modal = document.querySelector('.modal');
+      const overlay = document.querySelector('.overlay');
+      modal.style.display = 'none';
+      overlay.style.display = 'none';
+    }
+  
+    // imagenes
+    function selectNominee(img) {
+      const parentCategory = img.closest('.category'); 
+      const nominees = parentCategory.querySelectorAll('.nominee'); 
+      nominees.forEach(nominee => {
+        nominee.classList.remove('selected');
+        nominee.classList.remove('not-selected');
+      });
+  
+      // seleccion
+      img.parentElement.classList.add('selected');
+      nominees.forEach(nominee => {
+        if (!nominee.classList.contains('selected')) {
+          nominee.classList.add('not-selected');
+        }
+      });
+  
+      const category = img.parentElement.dataset.category;
+      const name = img.parentElement.dataset.name;
+      const src = img.src;
+      winners[category] = { type: 'image', name, src };
+      updateWinnerList();
+    }
+  
+    // seleccion video
+    function selectVideo(button) {
+      const parentCategory = button.closest('.category');
+      const videos = parentCategory.querySelectorAll('.video-item');
+      videos.forEach(video => {
+        video.classList.remove('selected');
+        video.classList.remove('not-selected');
+      });
+      button.parentElement.classList.add('selected');
+      videos.forEach(video => {
+        if (!video.classList.contains('selected')) {
+          video.classList.add('not-selected');
+        }
+      });
+  
+      const category = button.parentElement.dataset.category;
+      const name = button.parentElement.dataset.name;
+      const src = button.parentElement.querySelector('source').src;
+      winners[category] = { type: 'video', name, src };
+      updateWinnerList();
+    }
+  
+    // lista de ganadores
+    function updateWinnerList() {
+      const winnerList = document.getElementById('winners-list');
+      winnerList.innerHTML = '';
+      Object.entries(winners).forEach(([category, winner]) => {
+        const li = document.createElement('li');
+li.innerHTML = `
+  <h3 class="category-name" style="color: yellow">${category}</h3>
+  ${winner.type === 'image' ? 
+    `<img src="${winner.src}" alt="${winner.name}" >` : 
+    `<video controls style="object-fit:contain; width: 500px; height: 350px;">
+      <source src="${winner.src}" type="video/mp4">
+    </video>`
+  }
+  <p class="nominee-name" style="color: white">${winner.name}</p>
+`;
+
+        winnerList.appendChild(li);
+      });
+    }
+
+
+    //mostrar la lista con el boton
+    function showWinners() {
+      const winnersDiv = document.getElementById('winners');
+      winnersDiv.style.display = 'block';
+    }
+  </script>
+  
+</body>
+</html>
